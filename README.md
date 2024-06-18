@@ -1,1 +1,1 @@
-this has react/next.js/tailwind
+Simple todo list to learn react/next.js/tailwind
