@@ -1,5 +1,5 @@
 export default class ToDoItem {
-  text: string,
+  text: string
   completed: boolean
 
   constructor(text: string, completed: boolean) {
