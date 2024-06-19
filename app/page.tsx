@@ -16,6 +16,17 @@ export default function ToDoList() {
     setToDoList(toDoList => [...toDoList, toDo]) 
     setToDo(new ToDo("", false))
   }
+
+  function handleToDoChecked(key: number) {
+    let newList = toDoList.map((toDoItem, index) => {
+      if(key == index) {
+        toDoItem.completed = !toDoItem.completed
+      }
+      return toDoItem
+    })
+
+    setToDoList(newList)
+  }
   
   return (
     <div className="flex flex-col items-center">
@@ -34,10 +45,12 @@ export default function ToDoList() {
       </span>
       <div className="flex flex-col w-96">
         {
-          toDoList.map(toDoItem => (
+          toDoList.map((toDoItem, index) => (
             <ToDoItem 
-              text={toDoItem.text} 
-              completed={toDoItem.completed} 
+              key={index}
+              id={index}
+              toDoItem={toDoItem}
+              checked={handleToDoChecked}
             />
           ))
         }
